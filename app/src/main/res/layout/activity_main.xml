@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50121653" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <Button
         android:id="@+id/off"
@@ -76,13 +76,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/bluetooth_status"
+        android:id="@+id/bluetooth_logo"
         android:layout_width="70dp"
         android:layout_height="56dp"
         app:layout_constraintBottom_toTopOf="@+id/off"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047"
         app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
     <ImageView
@@ -91,7 +93,7 @@
         android:layout_height="52dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/scan"
-        app:layout_constraintEnd_toStartOf="@+id/bluetooth_status"
+        app:layout_constraintEnd_toStartOf="@+id/bluetooth_logo"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -106,10 +108,22 @@
         app:layout_constraintBottom_toTopOf="@+id/scan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bluetooth_status"
+        app:layout_constraintStart_toEndOf="@+id/bluetooth_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.428"
         app:srcCompat="@android:drawable/ic_menu_compass" />
+
+    <TextView
+        android:id="@+id/bluetooth_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bluetooth Status"
+        app:layout_constraintBottom_toTopOf="@+id/scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluetooth_logo"
+        app:layout_constraintVertical_bias="0.898" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
