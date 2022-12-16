@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FrostBT</string>
+    <string name="BTnotOn">Bluetooth not on</string>
+    <string name="TODO">Need to implement</string>
+</resources>
