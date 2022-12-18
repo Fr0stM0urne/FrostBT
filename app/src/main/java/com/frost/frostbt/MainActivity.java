@@ -125,9 +125,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v){
                     Toast.makeText(getApplicationContext(), "BT PRESSED", Toast.LENGTH_SHORT).show();
-                    if(mConnectedThread != null) //First check to make sure thread created
+                    if(mConnectedThread != null) { //First check to make sure thread created
                         Toast.makeText(getApplicationContext(), "SENDING DATA", Toast.LENGTH_SHORT).show();
                         mConnectedThread.write("1");
+                    }
                 }
             });
 
