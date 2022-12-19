@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
 
+    private ListView mDeviceDetailsView;
+    private ArrayAdapter<String> mDeviceDetailsArrayAdapter;
+
     private Handler mHandler;
     private ConnectedThread mConnectedThread;
     private BluetoothSocket mBTSocket = null;
@@ -93,7 +96,12 @@ public class MainActivity extends AppCompatActivity {
         mDevicesListView.setAdapter(mBTArrayAdapter);
         mDevicesListView.setOnItemClickListener(mDeviceClickListener);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN}, 1);
+
+        mDeviceDetailsArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        mDeviceDetailsView = (ListView) findViewById(R.id.device_details);
+        mDeviceDetailsView.setAdapter(mDeviceDetailsArrayAdapter);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_ADVERTISE, Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN}, 1);
 
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
@@ -208,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             if(mBTAdapter.isEnabled()) {
                 mBTArrayAdapter.clear(); // clear items
+                mDeviceDetailsArrayAdapter.clear();
                 mBTAdapter.startDiscovery();
                 Toast.makeText(getApplicationContext(), getString(R.string.DisStart), Toast.LENGTH_SHORT).show();
                 registerReceiver(blReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
@@ -235,14 +244,16 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("MissingPermission")
     private void listPairedDevices() {
         mBTArrayAdapter.clear();
+        mDeviceDetailsArrayAdapter.clear();
         mPairedDevices = mBTAdapter.getBondedDevices();
         if(mBTAdapter.isEnabled()) {
             // put it's one to the adapter
             for (BluetoothDevice device : mPairedDevices) {
                 mBTArrayAdapter.add(device.getName() + "\n" +
                         device.getAddress());
-                Toast.makeText(getApplicationContext(), "Found device: "+
-                        Arrays.toString(device.getUuids()) , Toast.LENGTH_SHORT).show();
+                mDeviceDetailsArrayAdapter.add(Arrays.toString(device.getUuids()));
+//                Toast.makeText(getApplicationContext(), "Found device: "+
+//                        Arrays.toString(device.getUuids()) , Toast.LENGTH_SHORT).show();
             }
 
             Toast.makeText(getApplicationContext(), getString(R.string.show_paired_devices), Toast.LENGTH_SHORT).show();

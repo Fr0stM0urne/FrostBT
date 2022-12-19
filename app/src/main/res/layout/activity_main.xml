@@ -33,7 +33,6 @@
         android:id="@+id/paired_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="SHOW PAIRED DEVICES"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -58,26 +57,13 @@
 
     <ListView
         android:id="@+id/devices_list_view"
-        android:layout_width="371dp"
-        android:layout_height="386dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="385dp"
+        android:layout_height="142dp"
+        android:layout_marginBottom="12dp"
         android:choiceMode="singleChoice"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/device_details"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/bluetooth_logo"
-        android:layout_width="70dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/bluetooth_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397"
-        app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
     <ImageView
         android:id="@+id/compass_left"
@@ -89,8 +75,43 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_compass" />
+
+    <TextView
+        android:id="@+id/bluetooth_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Bluetooth Status"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/read_buffer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/bluetooth_logo"
+        android:layout_width="70dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/bluetooth_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
+
+    <TextView
+        android:id="@+id/read_buffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="READ BUFFER"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/compass_right"
@@ -102,30 +123,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/bluetooth_logo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_compass" />
 
-    <TextView
-        android:id="@+id/bluetooth_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Bluetooth Status"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/read_buffer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/read_buffer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ListView
+        android:id="@+id/device_details"
+        android:layout_width="410dp"
+        android:layout_height="238dp"
         android:layout_marginBottom="16dp"
-        android:text="READ BUFFER"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/scan"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent" />
 
 

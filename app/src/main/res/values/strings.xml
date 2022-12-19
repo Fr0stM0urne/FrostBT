@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FrostBT</string>
+    <string name="app_name">Bluetooth Frost</string>
     <string name="TODO">Need to implement</string>
     <string name="BTconnFail">Connection Failed</string>
     <string name="BTConnected">Connected to Device: </string>
